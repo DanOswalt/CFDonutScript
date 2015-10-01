@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Johnny D's Donut Dreem</title>
+</head>
+<body>
+	<h1>Johnny D's Donut Dreem</h1>
+	<h3>If you've got dollars, we've got donuts</h3>
+
+	<section id='content'>
+		<article>
+			<h2>Johnny D's Dreemy Sales Calculator</h2>
+			<p>The sales calculator program will run an hourly report that will simulate donut sales.  The data from the shop stats column below is used to run the simulation.  Each shop's historic minimum and maximum customer per hour statistics will be used to set a random sample for each hour a shop is open.  This random customer sample is then multiplied by the shop's known average donut per customer rate for total donut sales for each hour of operation.  The total donut sales is output into simulation results table.  Below, a full hourly report is provided for the curious.  This should give Johnny D a good idea of when to wake up in the morning to start baking.</p>
+			<button>Simulate Daily Donut Sales</button>
+		</article>
+		<h3>Shop Stats</h3>	
+		<table id='shop-stats'>
+			<thead>
+				<th></th>
+				<th><b>Downtown</b></th>
+				<th><b>Capitol Hill</b></th>
+				<th><b>South Lake Union</b></th>
+				<th><b>Wedgewood</b></th>
+				<th><b>Ballard</b></th>
+			</thead>
+			<tbody>
+				<tr>
+					<td><b>Min Customers</b></td>
+					<td>8</td>
+					<td>4</td>
+					<td>9</td>
+					<td>2</td>
+					<td>8</td>
+				</tr>
+				<tr>
+					<td><b>Max Customers</b></td>
+					<td>43</td>
+					<td>37</td>
+					<td>23</td>
+					<td>28</td>
+					<td>58</td>
+				</tr>
+				<tr>
+					<td><b>Ave Donuts p/hr</b></td>
+					<td>4.5</td>
+					<td>2.0</td>
+					<td>6.33</td>
+					<td>1.25</td>
+					<td>3.75</td>
+				</tr>
+				<tr>
+					<td><b>Open Hour</b></td>
+					<td>10</td>
+					<td>0</td>
+					<td>9</td>
+					<td>9</td>
+					<td>9</td>
+				</tr>
+				<tr>
+					<td><b>Close Hour</b></td>
+					<td>17</td>
+					<td>23</td>
+					<td>18</td>
+					<td>15</td>
+					<td>18</td>
+				</tr>
+				<tr>
+					<td><b>Min Customers</b></td>
+					<td>8</td>
+					<td>4</td>
+					<td>9</td>
+					<td>2</td>
+					<td>8</td>
+				</tr>
+			</tbody>
+		</table>
+		<br/>
+		<h3>Simulation Results</h3>			
+		<table id='simulation'>
+			<thead>
+				<th></th>
+				<th><b>Downtown</b></th>
+				<th><b>Capitol Hill</b></th>
+				<th><b>South Lake Union</b></th>
+				<th><b>Wedgewood</b></th>
+				<th><b>Ballard</b></th>
+				<th><b>Total</b></th>
+			</thead>	
+			<tbody>
+				<tr class='sim-row'>
+					<td><b>Sim Total Cust</b></td>
+					<td>-</td>
+					<td>-</td>
+					<td>-</td>
+					<td>-</td>
+					<td>-</td>
+					<td>-</td>
+				</tr>
+				<tr class='sim-row'>
+					<td><b>Sim Donuts Sold</b></td>
+					<td>-</td>
+					<td>-</td>
+					<td>-</td>
+					<td>-</td>
+					<td>-</td>
+					<td>-</td>
+				</tr>
+			</tbody>
+		</table>
+		<h3>Full Hourly Report:</h3>	
+		<p id='report'>(Not yet run)</p>
+	</section>
+	<br/>
+	<footer>
+		<p>Copyright 2015&copy; Johnny D's International Donut Dreem</p>
+	</footer>
+
+</body>
+</html>
