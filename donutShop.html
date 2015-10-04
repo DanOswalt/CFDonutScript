@@ -3,6 +3,7 @@
 <head>
 	<title>Johnny D's Donut Dreem</title>
 	<link href='https://fonts.googleapis.com/css?family=Lato' rel='stylesheet' type='text/css'>
+	<link href='https://fonts.googleapis.com/css?family=Corben:400,700' rel='stylesheet' type='text/css'>
 	<link rel="stylesheet" type="text/css" href="style.css">
 </head>
 <body>
@@ -47,7 +48,7 @@
 							<td>58</td>
 						</tr>
 						<tr>
-							<td><b>Ave Donuts p/hr</b></td>
+							<td><b>Donuts p/hr</b></td>
 							<td>4.5</td>
 							<td>2.0</td>
 							<td>6.33</td>
@@ -94,8 +95,8 @@
 						<th><b>Total</b></th>
 					</thead>	
 					<tbody>
-						<tr class='sim-row'>
-							<td><b>Sim Total Cust</b></td>
+						<tr id='customers-row'>
+							<td><b>Total Cust</b></td>
 							<td>-</td>
 							<td>-</td>
 							<td>-</td>
@@ -103,8 +104,8 @@
 							<td>-</td>
 							<td>-</td>
 						</tr>
-						<tr class='sim-row'>
-							<td><b>Sim Donuts Sold</b></td>
+						<tr id='donuts-row'>
+							<td><b>Donuts Sold</b></td>
 							<td>-</td>
 							<td>-</td>
 							<td>-</td>
@@ -116,13 +117,13 @@
 				</table>
 				<h3>Full Hourly Report:</h3>
 				<div id='report' class='johnny-style'>
-					<p id='report'>(Not yet run)</p>
+					<p id='report-msg'>(Not yet run)</p>
 				</div>
 			</section><!-- 
 		 --><aside>
-		 		<h3>Get Our App!</h3>
-				<img href='#' id='register' class='big-donut johnny-style' src='img/donut.jpg'>
-		 		<h4>(Just $0.99!)</h4>
+		 		<h3 id='purchase-msg'>Get Our App!</h3>
+				<a href='#' id='purchase-btn'><img id='donut-app' class='big-donut' src='img/donut.jpg'></a>
+		 		<h4 id='price'>(Just $0.99!)</h4>
 			</aside>
 		</div>
 		<br/>
@@ -130,5 +131,7 @@
 			<p>Copyright 2015&copy; Johnny D's International Donut Dreem</p>
 		</footer>
 	</div>
+	<script src="jquery-1.11.3.min.js"></script>
+	<script src='donutReport.js'></script>
 </body>
 </html>
