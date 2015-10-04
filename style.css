@@ -4,6 +4,10 @@ body {
 	font-size: 16px;
 }
 
+#wrapper {
+
+}
+
 header {
 	background-color: white;
 	text-align: center;
@@ -12,19 +16,40 @@ header {
 }
 
 section {
-	max-width: 70%;
-	background-color: orange;
+	display: inline-block;
+	width: 70%;
+	background-color: white;
 	margin: 0;
 	padding: 0;
-	float: left;	
+	text-align: center;
+}
+
+article {
+	padding-bottom: 10px;
 }
 
 aside {
-	max-width: 30%;
-	background-color: blue;	
+	display: inline-block;
+	vertical-align: top;
+	text-align: center;
+	width: 30%;
 	margin: 0;
 	padding: 0;
-	float: right;
+}
+
+
+tr:nth-child(odd) {
+	background-color: #FF66FF;
+}
+
+tr:nth-child(even) {
+	background-color: #999;
+}
+
+th, td:first-child{
+	background-color: white;
+	width: 150px;
+	font-size: .8em;
 }
 
 footer {
@@ -38,20 +63,49 @@ footer {
 	width: .7em;
 }
 
-.big-donut {
-	height: 5em;
-	width: 5em;
+.johnny-style {
+	border-top: #FF66FF solid 4px;
+	border-right: #FF66FF solid 4px;
+	border-bottom: #999 solid 4px;
+	border-left: #999 solid 4px;
+}
+
+img.big-donut {
+	height: 100px;
+	width: 100px;
+	border-radius: 100%;
+}
+
+p {
+	text-align: left;
+	padding: 0px 5px 5px 10px;
+	margin: 5px;
 }
 
 h1 {
 	font-size: 3em;
-	color: #7A9596;
 	margin: 0;
 	padding-top: 10px;
 	padding-bottom: 0;
 }
 
-h3 {
-	color: #7A9596;
+h2, h3 {
 	padding: 10px;
+}
+
+h4 {
+	color: green;
+}
+
+#simulate {
+	border: 4px solid black;
+	background-color: green;	
+	color: white;
+	border-radius: 5px;
+	padding: 5px;
+}
+
+#simulate:hover {
+	background-color: white;
+	color: green;
 }
