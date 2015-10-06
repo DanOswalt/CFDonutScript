@@ -31,9 +31,18 @@ $(function () {
 	});
 
 	$navBtn.on('click', function() {
-		$('.shop-facts').hide();
-		$(this).children().eq(0).show();
-	})
+		//get the first child
+		var $infoCard = $(this).children().eq(0);
+
+		//if the shop card is showing, hide it along with the others
+		if( $infoCard.is(":visible") ) { 
+			$('.shop-facts').hide();
+		} else { 
+			//else, hide all, then show the child of the clicked parent
+			$('.shop-facts').hide();
+			$infoCard.show();
+		}
+	});
 
 
 
