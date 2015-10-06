@@ -4,15 +4,53 @@ body {
 	font-size: 16px;
 }
 
-#wrapper {
-
-}
-
 header {
 	background-color: white;
 	text-align: center;
 	padding: 0;
 	margin: 0;
+}
+
+#nav-bar {
+	display: flex;
+	font-size: 1.2em; 
+	font-family:'Corben'; 
+	color: #FF66FF;
+	list-style-type: none;
+	cursor: pointer;
+	text-align: center;
+	margin: 60px 0px;
+}
+
+#nav-bar li {
+	width: 200px;
+	height: 50px;
+	margin: auto;
+	border: white 1px solid;
+}
+
+#nav-bar li:hover {
+	border-bottom: #999 1px solid;
+}
+
+.shop-facts {
+	font-family: courier;
+	font-size: 0.8em;
+	color: white;
+	list-style-type: none;
+	cursor: pointer;
+	text-align: center;
+	background-color: #999;
+	padding: 0;
+	margin: 0;
+	margin-top: 20px;
+	display: none;
+	box-shadow: 5px 5px 5px;
+}
+
+.shop-facts li {
+	margin: 0;
+	padding: 5px;
 }
 
 section {
@@ -80,9 +118,12 @@ footer {
 
 .johnny-style {
 	border-top: #FF66FF solid 4px;
-	border-right: #FF66FF solid 4px;
 	border-bottom: #999 solid 4px;
-	border-left: #999 solid 4px;
+}
+
+.shop-pic {
+	width: 185px;
+	height: 300px;
 }
 
 img.big-donut {
@@ -107,8 +148,7 @@ h1 {
 	margin: 0 auto;
 	width: 75%;
 	padding-top: 10px;
-	padding-bottom: 0;
-	border-bottom: solid 1px #FF66FF;
+	padding-bottom: 0;;
 }
 
 h2 {
@@ -122,6 +162,11 @@ h2, h3 {
 	padding: 10px;
 }
 
+#subtitle {
+	width: 75%;
+	margin: 0 auto;
+}
+
 h4 {
 	color: green;
 }
@@ -132,6 +177,7 @@ h4 {
 	color: white;
 	border-radius: 5px;
 	padding: 5px;
+	cursor: pointer;
 }
 
 #simulate:hover {

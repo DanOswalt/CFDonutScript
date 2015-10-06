@@ -9,9 +9,53 @@
 <body>
 	<div id='wrapper'>
 		<header>
-			<h1>J<img class='donut' src='img/donut.jpg' alt='O'></span>hnny D's D<img class='donut' src='img/donut.jpg' alt='O'></span>nut Dreem</h1>
-			<h3>If you've got dollars, we've got donuts</h3>
+			<h1 id='title'>J<img class='donut' src='img/donut.jpg' alt='O'></span>hnny D's D<img class='donut' src='img/donut.jpg' alt='O'></span>nut Dreem</h1>
+			<h3 id='subtitle' class='johnny-style'>If you've got dollars, we've got donuts</h3>
 		</header>
+		<nav>
+			<ul id='nav-bar'>
+				<li class='nav-button'>Downtown
+					<ul class='shop-facts'>
+						<li>100 Main Ave</li>
+						<li>10 am - 5 pm</li>
+						<li>Supervisor:</li>
+						<li>Larry Crumple</li>
+					</ul>
+				</li>
+				<li class='nav-button'>South Lake Union
+					<ul class='shop-facts'>
+						<li>90 3rd Ave</li>
+						<li>Open 24 hrs!</li>
+						<li>Supervisor:</li>
+						<li>Sherry Tumple</li>
+					</ul>
+				</li>
+				<li class='nav-button'>Wedgewood
+					<ul class='shop-facts'>
+						<li>14 Wedge Circle</li>
+						<li>9am - 6pm</li>
+						<li>Supervisor:</li>
+						<li>Gary Stubble</li>
+					</ul>
+				</li>
+				<li class='nav-button'>Ballard
+					<ul class='shop-facts'>
+						<li>1 Main St</li>
+						<li>9am - 3pm</li>
+						<li>Supervisor:</li>
+						<li>Mary Hubble</li>
+					</ul>
+				</li>
+				<li id='nav-button'>Capitol Hill
+					<ul class='shop-facts'>
+						<li>1329 Beaver Hwy</li>
+						<li>9am - 6pm</li>
+						<li>Supervisor:</li>
+						<li>Terry Gumbo</li>
+					</ul>
+				</li>
+			</ul>
+		</nav>
 		<div id='wrapper'>
 			<section id='content'>
 				<article class='johnny-style'>
@@ -21,7 +65,7 @@
 					<p>The total donut sales is output into simulation results table.  Below, a full hourly report is provided for the curious.  This should give Johnny D a good idea of when to wake up in the morning to start baking.</p>
 				</article>
 				<h3>Shop Stats</h3>	
-				<table id='shop-stats' class='johnny-style'>
+				<table id='shop-stats'  class='johnny-style'>
 					<thead>
 						<th></th>
 						<th><b>Downtown</b></th>
@@ -84,7 +128,7 @@
 				<br/>
 				<button id='simulate'>Simulate Donut Dreems</button>
 				<h3>Results</h3>			
-				<table id='simulation' class='johnny-style'>
+				<table id='simulation'  class='johnny-style'>
 					<thead>
 						<th></th>
 						<th><b>Downtown</b></th>
@@ -116,12 +160,12 @@
 					</tbody>
 				</table>
 				<h3>Full Hourly Report:</h3>
-				<div id='report' class='johnny-style'>
+				<div id='report'  class='johnny-style'>
 					<p id='report-msg'>(Not yet run)</p>
 				</div>
 			</section><!-- 
 		 --><aside>
-		 		<h3 id='purchase-msg'>Get Our App!</h3>
+		 		<h3 id='purchase-msg'>Get Our Calculator App!</h3>
 				<a href='#' id='purchase-btn'><img id='donut-app' class='big-donut' src='img/donut.jpg'></a>
 		 		<h4 id='price'>(Just $0.99!)</h4>
 			</aside>

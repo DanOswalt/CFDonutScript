@@ -1,7 +1,8 @@
 $(function () {
 
 	var $simBtn = $('#simulate'),
-		$purchaseBtn = $('#purchase-btn');
+		$purchaseBtn = $('#purchase-btn'),
+		$navBtn= $('.nav-button');
 
 	//on donut app click, changes messages and unbind the event
 	$purchaseBtn.on('click', function () {
@@ -9,7 +10,7 @@ $(function () {
 		$('#purchase-msg').hide().text("Thanks!").fadeIn();
 		$('#price').delay(400).hide().css('color','#FF66FF').text("You won't regret it!").fadeIn();
 		$('img.big-donut:hover').css('opacity', '1.0');
-		$('img.big-donut').addClass('johnny-style');
+		$('img.big-donut').addClass('johnny-style').css('cursor','default');
 
 		$purchaseBtn.unbind();
 
@@ -28,6 +29,15 @@ $(function () {
 					'color': 'white'
 				});
 	});
+
+	$navBtn.on('click', function() {
+		$('.shop-facts').hide();
+		$(this).children().eq(0).show();
+	})
+
+
+
+
 
 	//run each branch's sales projection and load into html table
 	$simBtn.on('click', function() {
@@ -65,12 +75,7 @@ $(function () {
 
 		$('#report').html(report);
 
-		function updateRow(selector, rowIndex) {
-			$(selector).children().each(function(cellIndex) {
-		  		if(cellIndex === 0) {return};
-		 		this.innerHTML = simData[cellIndex - 1][rowIndex];
-			 });
-		}
+		//functions
 
 		//create a DonutShop class
 		function DonutShop(name, minCustomers, maxCustomers, avgDonutPerHour, open, close) {
@@ -125,6 +130,14 @@ $(function () {
 			};
 
 		};
+
+		//cycle through each cell in a row and input data
+		function updateRow(selector, rowIndex) {
+			$(selector).children().each(function(cellIndex) {
+		  		if(cellIndex === 0) {return};
+		 		this.innerHTML = simData[cellIndex - 1][rowIndex];
+			 });
+		}
 
 		//convenience function for random numbers
 		function randBetween(min, max) {
