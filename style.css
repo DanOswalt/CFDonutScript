@@ -175,6 +175,15 @@ h4 {
 	color: green;
 }
 
+#slider {
+	margin-top: 20px;
+}
+
+#price-msg {
+	font-weight: bold;
+	color: green;
+}
+
 #simulate {
 	border: 4px solid black;
 	background-color: green;	

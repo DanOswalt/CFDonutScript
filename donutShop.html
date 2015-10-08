@@ -1,9 +1,10 @@
 <!DOCTYPE html>
 <html>
 <head>
+	<meta charset="UTF-8">
 	<title>Johnny D's Donut Dreem</title>
-	<link href='https://fonts.googleapis.com/css?family=Lato' rel='stylesheet' type='text/css'>
-	<link href='https://fonts.googleapis.com/css?family=Corben:400,700' rel='stylesheet' type='text/css'>
+<!-- 	<link href='https://fonts.googleapis.com/css?family=Lato' rel='stylesheet' type='text/css'>
+	<link href='https://fonts.googleapis.com/css?family=Corben:400,700' rel='stylesheet' type='text/css'> -->
 	<link rel="stylesheet" type="text/css" href="style.css">
 </head>
 <body>
@@ -62,6 +63,7 @@
 					<h2>Johnny D's Dreemy Sales Simulator</h2>
 					<p>The sales calculator program will run an hourly report that will simulate donut sales.  The data from the shop stats column below is used to run the simulation.</p>  
 					<p>Each shop's historic minimum and maximum customer per hour statistics will be used to set a random sample for each hour a shop is open.  This random customer sample is then multiplied by the shop's known average donut per customer rate for total donut sales for each hour of operation.</p>
+					<p>Your can change the donut price.  Each store has a set price-sensitivity though: the % of average donuts sold per hour drops or rises this much per dollar.</p>
 					<p>The total donut sales is output into simulation results table.  Below, a full hourly report is provided for the curious.  This should give Johnny D a good idea of when to wake up in the morning to start baking.</p>
 				</article>
 				<h3>Shop Stats</h3>	
@@ -116,18 +118,23 @@
 							<td>18</td>
 						</tr>
 						<tr>
-							<td><b>Min Customers</b></td>
-							<td>8</td>
-							<td>4</td>
-							<td>9</td>
-							<td>2</td>
-							<td>8</td>
+							<td><b>Price Sensitivity</b></td>
+							<td>5%</td>
+							<td>20%</td>
+							<td>15%</td>
+							<td>50%</td>
+							<td>35%</td>
 						</tr>
 					</tbody>
 				</table>
 				<br/>
-				<button id='simulate'>Simulate Donut Dreems</button>
-				<h3>Results</h3>			
+  					<button id='simulate'>Simulate Donut Dreems</button>
+  					<br>
+  				<form>
+  					<input id='slider' type="range" name="price" min="100" max="500">
+  					<h3 id='price-msg'>Donut Price: </h3>
+				</form>	
+				<h3>Results</h3>		
 				<table id='simulation'  class='johnny-style'>
 					<thead>
 						<th></th>
@@ -150,6 +157,15 @@
 						</tr>
 						<tr id='donuts-row'>
 							<td><b>Donuts Sold</b></td>
+							<td>-</td>
+							<td>-</td>
+							<td>-</td>
+							<td>-</td>
+							<td>-</td>
+							<td>-</td>
+						</tr>
+						<tr id='sales-row'>
+							<td><b>Total Sales</b></td>
 							<td>-</td>
 							<td>-</td>
 							<td>-</td>

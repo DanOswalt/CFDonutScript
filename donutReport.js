@@ -2,7 +2,16 @@ $(function () {
 
 	var $simBtn = $('#simulate'),
 		$purchaseBtn = $('#purchase-btn'),
-		$navBtn= $('.nav-button');
+		$navBtn= $('.nav-button'),
+		$slider= $('#slider');
+
+	function getDonutPrice() {
+			var sliderValue = parseFloat($slider.val() / 100);
+			donutPrice = sliderValue.toFixed(2);
+			$('#price-msg').text('Donut Price: $' + donutPrice);
+	}	
+
+	getDonutPrice();
 
 	//on donut app click, changes messages and unbind the event
 	$purchaseBtn.on('click', function () {
@@ -45,6 +54,7 @@ $(function () {
 	});
 
 
+	$slider.on('change', getDonutPrice);
 
 
 
@@ -54,11 +64,11 @@ $(function () {
 		//make some nice DonutShops
 		var branches = [
 
-			new DonutShop('Downtown', 8, 43, 4.50, 10, 17), //8 hours
-			new DonutShop('Capitol Hill', 4, 37, 2.00, 0, 23), //24 hours
-			new DonutShop('South Lake Union', 9, 23, 6.33, 9, 18), //10 hours
-			new DonutShop('Wedgewood', 2, 28, 1.25, 9, 15), //7 hours
-			new DonutShop('Ballard', 8,	58,	3.75, 9, 18) //10 hours
+			new DonutShop('Downtown', 8, 43, 4.50, 10, 17, .05), //8 hours
+			new DonutShop('Capitol Hill', 4, 37, 2.00, 0, 23, 0.20), //24 hours
+			new DonutShop('South Lake Union', 9, 23, 6.33, 9, 18, .15), //10 hours
+			new DonutShop('Wedgewood', 2, 28, 1.25, 9, 15, .50), //7 hours
+			new DonutShop('Ballard', 8,	58,	3.75, 9, 18, .35) //10 hours
 
 		];
 
@@ -66,28 +76,30 @@ $(function () {
 		var result = [];
 		var grandTotalCustomers = 0;
 		var grandTotalDonutsSold = 0;
+		var grandTotalSales = 0;
 		var report = "";
 
 		//call the runSalesProjection method on each DonutShop in branches
 		for (var index = 0; index < branches.length; index++) {
-			result = branches[index].runSalesProjection();
+			result = branches[index].runSalesProjection(donutPrice);
 			simData[index] = result;
 		}
 
 		//add the grandtotals to simData
-		simData.push([grandTotalCustomers, grandTotalDonutsSold]);
+		simData.push([grandTotalCustomers, grandTotalDonutsSold, '$' + grandTotalSales.toFixed(2)]);
 		console.log(simData);
 
 		//write the results into the sim table
 		updateRow('#customers-row',0);
 		updateRow('#donuts-row',1);
+		updateRow('#sales-row',2);
 
 		$('#report').html(report);
 
 		//functions
 
 		//create a DonutShop class
-		function DonutShop(name, minCustomers, maxCustomers, avgDonutPerHour, open, close) {
+		function DonutShop(name, minCustomers, maxCustomers, avgDonutPerHour, open, close, priceSensitivity) {
 
 			this.name = name;
 			this.minCustomers = minCustomers;
@@ -95,15 +107,22 @@ $(function () {
 			this.avgDonutPerHour = avgDonutPerHour;
 			this.open = open;
 			this.close = close;
+			this.priceSensitivity = priceSensitivity;
 
 			//log a report of how many donuts are sold by hour and by day based on a random sample of customers
-			this.runSalesProjection = function() {
+			this.runSalesProjection = function(price) {
+
+				var modifier = 3 - price;
+				var percentChange = 1 + (modifier * this.priceSensitivity);
+				var adjustedDonutPerHour = this.avgDonutPerHour * percentChange;
 				
-				var msg, summary, rundown, hourlyCustomerSample, totalCustomers, hourlyDonutSales, totalDailyDonuts, timeString;
+				var msg, summary, rundown, hourlyCustomerSample, totalCustomers, 
+					hourlyDonutSales, totalDailyDonuts, totalSales, totalDailyDonuts, timeString;
 				var simData = [];
 
 				totalDailyDonuts = 0;
 				totalCustomers = 0;
+				totalSales = 0;
 				summary = "";
 				msg = "";
 				rundown = "";
@@ -112,7 +131,7 @@ $(function () {
 
 					timeString = getTimeString(hour);
 					hourlyCustomerSample = randBetween(this.minCustomers, this.maxCustomers);
-					hourlyDonutSales = Math.round(this.avgDonutPerHour * hourlyCustomerSample);
+					hourlyDonutSales = Math.round(adjustedDonutPerHour * hourlyCustomerSample);
 					rundown += timeString + ': ';
 					rundown += 'Customers - ' + hourlyCustomerSample + ", ";
 					rundown += 'Donuts Sold - ' + hourlyDonutSales;
@@ -122,19 +141,23 @@ $(function () {
 
 				};
 
+				totalSales = totalDailyDonuts * price;
+
 				grandTotalCustomers += totalCustomers;
 				grandTotalDonutsSold += totalDailyDonuts;
+				grandTotalSales += totalSales;
 
 				summary += '*******************************************<br/>';
 				summary += this.name + "'s Daily Sales Projection:<br/><br/>";
+				summary += 'Total sales: $' + totalDailyDonuts * price + '<br/>';
 				summary += 'Total donuts sold: ' + totalDailyDonuts + '<br/>';
-				summary += 'Total customers: ' + totalCustomers + '<br/><br/>';
+				summary += 'Total customers: ' + totalCustomers.toFixed(2) + '<br/><br/>';
 				
 				msg = summary + rundown + '*******************************************\n\n';
 
 				report += msg;
 
-				return [totalCustomers, totalDailyDonuts];
+				return [totalCustomers, totalDailyDonuts, '$' + totalSales.toFixed(2)];
 
 			};
 
@@ -146,6 +169,12 @@ $(function () {
 		  		if(cellIndex === 0) {return};
 		 		this.innerHTML = simData[cellIndex - 1][rowIndex];
 			 });
+		}
+
+		function getDonutPrice() {
+			var sliderValue = parseFloat($slider.val() / 100);
+			donutPrice = sliderValue.toFixed(2);
+			$('#price-msg').text('Donut Price: $' + price);
 		}
 
 		//convenience function for random numbers
