@@ -11,6 +11,14 @@ header {
 	margin: 0;
 }
 
+#johnny-pic {
+	border-radius: 100%;
+	border: 8px solid #FF66FF;
+	width: 200px;
+	height: 200px;
+	margin: 20px auto 0;
+}
+
 #nav-bar {
 	display: flex;
 	position: absolute;
@@ -20,7 +28,7 @@ header {
 	list-style-type: none;
 	cursor: pointer;
 	text-align: center;
-	margin: 60px auto;
+	margin: 20px auto;
 }
 
 #nav-bar li {
@@ -54,7 +62,7 @@ header {
 }
 
 #container {
-	margin-top: 150px;
+	margin-top: 100px;
 }
 
 section {
